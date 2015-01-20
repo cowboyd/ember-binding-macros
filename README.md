@@ -1,4 +1,7 @@
-# Ember-binding-macros
+# Ember Binding Macros
+[![Build Status](https://travis-ci.org/cowboyd/ember-binding-macros.png?branch=master)](https://travis-ci.org/cowboyd/ember-binding-macros)
+
+
 
 Ember has a great data binding system that is used in its
 templates. There is also a limited object syntax for it.
