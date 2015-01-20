@@ -1,7 +1,7 @@
 {
   "name": "ember-binding-macros",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.1.0",
+  "description": "Elegant binding syntax for using bindings within plain old ember objects.",
   "directories": {
     "doc": "doc",
     "test": "tests"
