@@ -1,13 +1,16 @@
 /* jshint expr:true */
 import Ember from 'ember';
 import PropertyBindingsMixin from 'ember-binding-macros/mixins/property-bindings';
-import startApp from '../../helpers/start-app';
 
 describe('PropertyBindingsMixin', function() {
   var object;
   function setup(options) {
     object = Ember.Object.createWithMixins(PropertyBindingsMixin, options);
   }
+
+  afterEach(function() {
+    Ember.run(object, "destroy");
+  });
 
   describe('binding one-way from left to right', function() {
     beforeEach(function() {
@@ -54,23 +57,25 @@ describe('PropertyBindingsMixin', function() {
   });
   describe('binding both ways', function() {
     beforeEach(function() {
-      setup({
-        propertiesBindings: ['left <> right'],
-        left: 5
-      });
-      it("copies the value from left to right", function() {
-        expect(object.get('right')).to.equal(5);
-      });
-      describe("setting the right", function() {
-        beforeEach(function() {
-          object.set('right', 10);
-        });
-        it("copies the value from right to left", function() {
-          expect(object.get('left')).to.equal(10);
+      Ember.run(function() {
+        setup({
+          propertyBindings: ['left <> right'],
+          left: 5
         });
       });
     });
 
+    it("copies the value from left to right", function() {
+      expect(object.get('right')).to.equal(5);
+    });
+    describe("setting the right", function() {
+      beforeEach(function() {
+        Ember.run(object, 'set', 'right', 10);
+      });
+      it("copies the value from right to left", function() {
+        expect(object.get('left')).to.equal(10);
+      });
+    });
   });
 
   describe('nested properties', function() {
