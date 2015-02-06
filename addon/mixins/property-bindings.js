@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 function parseSpecifier(spec) {
+  if (!spec) {
+    return null;
+  }
   var match;
   var normal = spec.replace(/\s+/g, '');
   if ((match = normal.match(/^(.+)<>(.+)$/))) {
@@ -41,12 +44,14 @@ export default Ember.Mixin.create({
 
     specifiers.forEach(function(specifier) {
       var spec = parseSpecifier(specifier);
-      var binding = Ember.Binding.from(spec.from).to(spec.to);
-      if (spec.oneWay) {
-        binding.oneWay();
+      if (spec) {
+        var binding = Ember.Binding.from(spec.from).to(spec.to);
+        if (spec.oneWay) {
+          binding.oneWay();
+        }
+        binding.connect(this);
+        bindings.push(binding);
       }
-      binding.connect(this);
-      bindings.push(binding);
     }, this);
   }).on('init'),
 
