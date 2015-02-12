@@ -1,6 +1,6 @@
 {
   "name": "ember-binding-macros",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Elegant binding syntax for using bindings within plain old ember objects.",
   "directories": {
     "doc": "doc",
