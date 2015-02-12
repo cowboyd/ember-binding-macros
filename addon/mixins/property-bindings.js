@@ -37,20 +37,24 @@ function bindingsFor(obj) {
   return meta.propertyBindings;
 }
 
+export function bindProperties(object, from, to, isOneWay) {
+  var bindings = bindingsFor(object);
+  var binding = Ember.Binding.from(from).to(to);
+  if (isOneWay) {
+    binding.oneWay();
+  }
+  binding.connect(object);
+  bindings.push(binding);
+}
+
 export default Ember.Mixin.create({
   __initializePropertyBindings__: Ember.observer(function() {
-    var bindings = bindingsFor(this);
     var specifiers = this.get('propertyBindings') || [];
 
     specifiers.forEach(function(specifier) {
       var spec = parseSpecifier(specifier);
       if (spec) {
-        var binding = Ember.Binding.from(spec.from).to(spec.to);
-        if (spec.oneWay) {
-          binding.oneWay();
-        }
-        binding.connect(this);
-        bindings.push(binding);
+        bindProperties(this, spec.from, spec.to, spec.oneWay);
       }
     }, this);
   }).on('init'),
