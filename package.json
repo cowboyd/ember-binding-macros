@@ -1,6 +1,6 @@
 {
   "name": "ember-binding-macros",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Elegant binding syntax for using bindings within plain old ember objects.",
   "directories": {
     "doc": "doc",
@@ -11,7 +11,7 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": "https://github.com/cowboyd/ember-binding-macros",
   "engines": {
     "node": ">= 0.10.0"
   },
