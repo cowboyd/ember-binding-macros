@@ -1,8 +1,9 @@
+/* jshint node: true */
 /* global require, module */
 
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
-var addon = new EmberAddon();
+var app = new EmberAddon();
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
@@ -17,4 +18,4 @@ var addon = new EmberAddon();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-module.exports = addon.toTree();
+module.exports = app.toTree();

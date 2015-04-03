@@ -48,7 +48,8 @@ export function bindProperties(object, from, to, isOneWay) {
 }
 
 export default Ember.Mixin.create({
-  __initializePropertyBindings__: Ember.observer(function() {
+  init() {
+    this._super.apply(this, arguments);
     var specifiers = this.get('propertyBindings') || [];
 
     specifiers.forEach(function(specifier) {
@@ -57,9 +58,9 @@ export default Ember.Mixin.create({
         bindProperties(this, spec.from, spec.to, spec.oneWay);
       }
     }, this);
-  }).on('init'),
+  },
 
-  willDestroy: function() {
+  willDestroy() {
     var bindings = bindingsFor(this);
     bindings.forEach(function(binding) {
       binding.disconnect(this);
