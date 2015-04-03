@@ -1,4 +1,6 @@
 # Ember Binding Macros
+[![npm version](https://badge.fury.io/js/ember-binding-macros.svg)](http://badge.fury.io/js/ember-binding-macros)
+[![Ember Observer Score](http://emberobserver.com/badges/ember-binding-macros.svg)](http://emberobserver.com/addons/ember-binding-macros)
 [![Build Status](https://travis-ci.org/cowboyd/ember-binding-macros.png?branch=master)](https://travis-ci.org/cowboyd/ember-binding-macros)
 
 
