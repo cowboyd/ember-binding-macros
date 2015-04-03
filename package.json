@@ -1,6 +1,6 @@
 {
   "name": "ember-binding-macros",
-  "version": "0.0.0",
+  "version": "0.3.0",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
@@ -11,7 +11,7 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": "https://github.com/cowboyd/ember-binding-macros",
   "engines": {
     "node": ">= 0.10.0"
   },
