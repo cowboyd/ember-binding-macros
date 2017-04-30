@@ -1,11 +1,13 @@
 /* jshint expr:true */
 import Ember from 'ember';
 import PropertyBindingsMixin from 'ember-binding-macros/mixins/property-bindings';
+import {expect} from 'chai';
+import { describe, it, beforeEach, afterEach } from 'mocha';
 
 describe('PropertyBindingsMixin', function() {
   var object;
   function setup(options) {
-    object = Ember.Object.createWithMixins(PropertyBindingsMixin, options);
+    object = Ember.Object.extend(PropertyBindingsMixin, {}).create(options);
   }
 
   afterEach(function() {
